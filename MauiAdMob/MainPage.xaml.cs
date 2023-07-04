@@ -1,15 +1,22 @@
-﻿namespace MauiAdMob;
+﻿using Plugin.MauiMTAdmob.Extra;
+using Plugin.MauiMTAdmob;
+
+namespace MauiAdMob;
 
 public partial class MainPage : ContentPage
 {
 	int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
 
-	private void OnCounterClicked(object sender, EventArgs e)
+        CrossMauiMTAdmob.Current.TagForChildDirectedTreatment = MTTagForChildDirectedTreatment.TagForChildDirectedTreatmentUnspecified;
+        CrossMauiMTAdmob.Current.TagForUnderAgeOfConsent = MTTagForUnderAgeOfConsent.TagForUnderAgeOfConsentUnspecified;
+        CrossMauiMTAdmob.Current.MaxAdContentRating = MTMaxAdContentRating.MaxAdContentRatingG;
+    }
+
+    private void OnCounterClicked(object sender, EventArgs e)
 	{
 		count++;
 
